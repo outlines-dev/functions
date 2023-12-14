@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "outlines-functions"
+authors= [{name = "Outlines Developers"}]
+description = "A collection of outlines functions"
+requires-python = ">=3.8"
+keywords=[
+    "machine learning",
+    "deep learning",
+    "language models",
+    "guided generation",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+tests = [
+     "outlines>=0.0.16",
+     "pytest"
+]
+
+[project.urls]
+repository = "https://github.com/outlines-dev/functions"
+
+[project.readme]
+file="README.md"
+content-type = "text/markdown"
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.setuptools.package-data]
+"outlines" = ["py.typed"]
+
+[tool.setuptools_scm]
+write_to = "src/_version.py"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+]
+
+[tool.mypy]
+exclude=["examples"]
+
+[[tool.mypy.overrides]]
+module = [
+    "outlines.*",
+    "pydantic.*"
+]
+ignore_missing_imports = true

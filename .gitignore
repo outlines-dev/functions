@@ -1,0 +1,6 @@
+/__pycache__/
+/tests/__pycache__/
+/src/_version.py
+*.egg-info
+/src/__pycache__/
+/build/
